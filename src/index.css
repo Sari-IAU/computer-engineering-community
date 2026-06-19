@@ -152,3 +152,6 @@ html.dark #social .button-icon,
     filter: invert(1) brightness(2);
   }
 }
+html {
+  scroll-behavior: smooth;
+}

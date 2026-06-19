@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import EventCard from "./EventCard";
-import { MOCK_EVENTS, CATEGORIES, FilterCategory } from "../../mockData/enventData"; // ایمپورت داده‌ها و فیلترها
+import { MOCK_EVENTS, CATEGORIES, type FilterCategory } from "../../mockData/enventData"; 
 
 export default function EventsSection() {
   const [active, setActive] = useState<FilterCategory>("همه");
