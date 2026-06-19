@@ -10,7 +10,6 @@ interface SearchResult {
   meta: string;
 }
 
-// داده‌های نمونه — بعداً با API جایگزین کن
 const MOCK_DATA: SearchResult[] = [
   { id: 1, title: "هکاتون بهار ۱۴۰۴", category: "رویدادها", meta: "۲۰–۲۲ خرداد • حضوری" },
   { id: 2, title: "کارگاه Deep Learning", category: "رویدادها", meta: "۱۵ خرداد • آنلاین" },
@@ -30,9 +29,9 @@ const CATEGORY_ICON: Record<Exclude<Category, "همه">, React.ReactNode> = {
 };
 
 const CATEGORY_COLOR: Record<Exclude<Category, "همه">, string> = {
-  "رویدادها": "bg-blue-500/10 text-blue-400",
-  "پروژه‌ها": "bg-violet-500/10 text-violet-400",
-  "بلاگ": "bg-emerald-500/10 text-emerald-400",
+  "رویدادها": "bg-blue-500/10 text-blue-500 dark:text-blue-400",
+  "پروژه‌ها": "bg-violet-500/10 text-violet-500 dark:text-violet-400",
+  "بلاگ": "bg-emerald-500/10 text-emerald-500 dark:text-emerald-400",
 };
 
 const CATEGORIES: Category[] = ["همه", "رویدادها", "پروژه‌ها", "بلاگ"];
@@ -54,7 +53,6 @@ export default function HeroSearchBox() {
 
   const showDropdown = isFocused && query.trim().length > 0;
 
-  // بستن dropdown با کلیک خارج
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
@@ -71,8 +69,9 @@ export default function HeroSearchBox() {
   };
 
   return (
-    <div dir="rtl" ref={wrapperRef} className=" flex flex-col gap-5 w-full max-w-2xl mx-auto relative z-10">
-<div className="flex items-center gap-2 mt-3 justify-center flex-wrap">
+    <div dir="rtl" ref={wrapperRef} className="flex flex-col gap-5 w-full max-w-2xl mx-auto relative z-10">
+      {/* دکمه‌های فیلتر دسته‌بندی بالای باکس */}
+      <div className="flex items-center gap-2 mt-3 justify-center flex-wrap">
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
@@ -80,25 +79,26 @@ export default function HeroSearchBox() {
             className={`text-xs font-medium px-3.5 py-1.5 rounded-full border transition-all duration-200 ${
               activeCategory === cat
                 ? "bg-indigo-600 dark:bg-blue-600 text-white border-transparent shadow-md shadow-indigo-500/20"
-                : "bg-white/60 dark:bg-white/5 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-white/10 hover:border-indigo-400 dark:hover:border-blue-400 hover:text-indigo-600 dark:hover:text-blue-400 backdrop-blur-sm"
+                : "bg-[var(--bg)] text-[var(--text)] border-[var(--border)] hover:border-indigo-400 dark:hover:border-blue-400 hover:text-indigo-600 dark:hover:text-blue-400"
             }`}
           >
             {cat}
           </button>
         ))}
       </div>
+
       {/* Search box */}
       <div
-        className={`flex items-center gap-3 bg-white/80 dark:bg-white/5 backdrop-blur-md border rounded-2xl px-4 py-3 transition-all duration-300 ${
+        className={`flex items-center gap-3 bg-[var(--bg)] border rounded-2xl px-4 py-3 transition-all duration-300 ${
           isFocused
             ? "border-indigo-400 dark:border-blue-400 shadow-xl shadow-indigo-500/10 dark:shadow-blue-500/10"
-            : "border-slate-200 dark:border-white/10 shadow-lg"
+            : "border-[var(--border)] shadow-lg"
         }`}
       >
         {/* آیکون سرچ */}
         <Search
           className={`w-5 h-5 flex-shrink-0 transition-colors duration-200 ${
-            isFocused ? "text-indigo-500 dark:text-blue-400" : "text-slate-400"
+            isFocused ? "text-indigo-500 dark:text-blue-400" : "text-[var(--text)] opacity-60"
           }`}
         />
 
@@ -110,14 +110,14 @@ export default function HeroSearchBox() {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
           placeholder="جستجو در رویدادها، پروژه‌ها و بلاگ..."
-          className="flex-1 bg-transparent text-sm md:text-base text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none text-right"
+          className="flex-1 bg-transparent text-sm md:text-base text-[var(--text-h)] placeholder:text-[var(--text)] placeholder:opacity-50 outline-none text-right"
         />
 
         {/* دکمه clear */}
         {query && (
           <button
             onClick={handleClear}
-            className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors flex-shrink-0"
+            className="text-[var(--text)] opacity-70 hover:opacity-100 transition-colors flex-shrink-0"
             aria-label="پاک کردن"
           >
             <X className="w-4 h-4" />
@@ -125,7 +125,7 @@ export default function HeroSearchBox() {
         )}
 
         {/* دیوایدر */}
-        <div className="w-px h-5 bg-slate-200 dark:bg-white/10 flex-shrink-0" />
+        <div className="w-px h-5 bg-[var(--border)] flex-shrink-0" />
 
         {/* دکمه سرچ */}
         <button className="flex-shrink-0 bg-indigo-600 hover:bg-indigo-500 dark:bg-blue-600 dark:hover:bg-blue-500 text-white text-sm font-semibold px-4 py-1.5 rounded-xl transition-all duration-200 flex items-center gap-1.5">
@@ -134,12 +134,9 @@ export default function HeroSearchBox() {
         </button>
       </div>
 
-      {/* فیلتر دسته‌بندی */}
-      
-
       {/* Dropdown نتایج */}
       {showDropdown && (
-        <div className="absolute top-full mt-2 right-0 left-0 z-50 bg-white dark:bg-[#0f1f3a] border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+        <div className="absolute top-full mt-2 right-0 left-0 z-50 bg-[var(--bg)] border border-[var(--border)] rounded-2xl shadow-2xl overflow-hidden">
           {results.length > 0 ? (
             <ul>
               {results.map((item, index) => (
@@ -156,10 +153,10 @@ export default function HeroSearchBox() {
 
                     {/* متن */}
                     <div className="flex-1 text-right min-w-0">
-                      <p className="text-sm font-medium text-slate-800 dark:text-white truncate group-hover:text-indigo-600 dark:group-hover:text-blue-400 transition-colors">
+                      <p className="text-sm font-medium text-[var(--text-h)] truncate group-hover:text-indigo-600 dark:group-hover:text-blue-400 transition-colors">
                         {item.title}
                       </p>
-                      <p className="text-xs text-slate-400 truncate mt-0.5">{item.meta}</p>
+                      <p className="text-xs text-[var(--text)] opacity-70 truncate mt-0.5">{item.meta}</p>
                     </div>
 
                     {/* بج دسته */}
@@ -168,14 +165,14 @@ export default function HeroSearchBox() {
                     </span>
                   </a>
                   {index < results.length - 1 && (
-                    <div className="mx-4 border-t border-slate-100 dark:border-white/5" />
+                    <div className="mx-4 border-t border-[var(--border)]" />
                   )}
                 </li>
               ))}
             </ul>
           ) : (
-            <div className="flex flex-col items-center gap-2 py-8 text-slate-400">
-              <Search className="w-8 h-8 opacity-30" />
+            <div className="flex flex-col items-center gap-2 py-8 text-[var(--text)] opacity-50">
+              <Search className="w-8 h-8 opacity-40" />
               <p className="text-sm">نتیجه‌ای پیدا نشد</p>
             </div>
           )}

@@ -47,7 +47,7 @@ export default function StatsSection() {
   return (
     <section
       dir="rtl"
-      className="w-full bg-slate-50 dark:bg-[#0B0F19] transition-colors duration-300"
+      className="w-full bg-[var(--bg)] transition-colors duration-300"
     >
       {/* فاصله از سرچ‌باکس که نصفش روی hero قراره */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-24 md:pb-20">
@@ -57,7 +57,7 @@ export default function StatsSection() {
           <p className="text-indigo-600 dark:text-blue-400 text-sm font-bold tracking-widest uppercase mb-3">
             انجمن در اعداد
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--text-h)]">
             یک جامعه{" "}
             <span className="text-indigo-600 dark:text-blue-400">پویا</span>{" "}
             و در حال رشد
@@ -69,22 +69,22 @@ export default function StatsSection() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className={`group relative flex flex-col items-center text-center gap-4 p-6 md:p-8 rounded-2xl border bg-white dark:bg-white/[0.03] ${stat.border} shadow-sm hover:shadow-xl ${stat.glow} transition-all duration-300 hover:-translate-y-1`}
+              className={`group relative flex flex-col items-center text-center gap-4 p-6 md:p-8 rounded-2xl border bg-[var(--bg)] border-[var(--border)] shadow-sm hover:shadow-xl ${stat.glow} transition-all duration-300 hover:-translate-y-1`}
             >
               {/* آیکون */}
               <div className={`p-3 rounded-xl border ${stat.bg} ${stat.border} ${stat.color}`}>
                 {stat.icon}
               </div>
 
-              {/* عدد */}
+              {/* عدد و متون */}
               <div>
                 <p className={`text-4xl md:text-5xl font-black tracking-tight ${stat.color}`}>
                   {stat.value}
                 </p>
-                <p className="text-base font-bold text-slate-800 dark:text-white mt-1">
+                <p className="text-base font-bold text-[var(--text-h)] mt-1">
                   {stat.label}
                 </p>
-                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1.5 leading-relaxed">
+                <p className="text-xs text-[var(--text)] opacity-80 mt-1.5 leading-relaxed">
                   {stat.description}
                 </p>
               </div>

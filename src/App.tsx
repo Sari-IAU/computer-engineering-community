@@ -9,13 +9,14 @@ function App() {
   return (
     <ThemeProvider>
       <div
-        className=" bg-slate-50 flex flex-col gap-5 min-h-screen   dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-blue-500/30"
+        className="bg-[var(--bg)] text-[var(--text)] flex flex-col gap-5 min-h-screen font-sans antialiased selection:bg-indigo-500/30 dark:selection:bg-blue-500/30 transition-colors duration-300"
         dir="rtl"
       >
         <Navbar />
-        <main className="relative ">
+        
+        <main className="relative">
           <HeroSection />
-          <div className="absolute -bottom-10 w-full">
+          <div className="absolute -bottom-10 w-full px-4">
             <HeroSearchBox />
           </div>
         </main>
