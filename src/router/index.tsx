@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import HomePage from "../pages/Home/HomePage";
 import EventsPage from "../pages/Events/EventsPage";
-import ProjectsPage from "../pages/Projects/ProjectPAge";
+import BlogPage from "../pages/Blogs/blogs";
+import ProjectsPage from "../pages/Projects/ProjectPage";
 
 export const router = createBrowserRouter([
   {
@@ -22,9 +23,10 @@ export const router = createBrowserRouter([
         element: <ProjectsPage/>,
       },
       {
-        path: "/event/:id",
-        element: <div className="p-8 text-center text-[var(--text-h)]">صفحه جزئیات رویداد</div>,
+        path: "/blogs",
+        element: <BlogPage/>,
       },
+      
     ],
   },
 ]);

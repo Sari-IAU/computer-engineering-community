@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // ایمپورت کامپوننت لینک
+import { Link } from "react-router-dom"; 
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 interface NavLink {
   label: string;
-  to: string; // تغییر از href به to
+  to: string; 
 }
 
-// تنظیم آدرس‌ها به مسیرهای واقعی در React Router
 const navLinks: NavLink[] = [
   { label: "رویدادها", to: "/events" },
   { label: "پروژه‌ها", to: "/projects" },
-  { label: "مقالات", to: "/blog" },
+  { label: "مقالات", to: "/blogs" },
   { label: "درباره ما", to: "/about" },
   { label: "تماس با ما", to: "/contact" },
 ];
