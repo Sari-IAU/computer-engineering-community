@@ -97,7 +97,7 @@ export default function Navbar() {
 
             {/* دکمه عضویت در انجمن */}
             <Link
-              to="/join"
+              to="/login"
               className="hidden md:inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 dark:bg-blue-600 dark:hover:bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -140,7 +140,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            to="/join"
+            to="/login"
             onClick={() => setMenuOpen(false)}
             className="mt-3 flex items-center justify-center gap-2 bg-indigo-600 dark:bg-blue-600 text-white text-sm font-bold px-4 py-2.5 rounded-lg transition-all"
           >
