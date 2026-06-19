@@ -12,7 +12,7 @@ const navLinks: NavLink[] = [
   { label: "رویدادها", to: "/events" },
   { label: "پروژه‌ها", to: "/projects" },
   { label: "مقالات", to: "/blogs" },
-  { label: "درباره ما", to: "/about" },
+  { label: "درباره ما", to: "/about-us" },
   { label: "تماس با ما", to: "/contact" },
 ];
 

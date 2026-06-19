@@ -4,6 +4,8 @@
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
+  --card-bg: #f8fafc; /* رنگ کارت‌ها در حالت لایت‌مود */
+  --card-hover: #f1f5f9; /* رنگ هاور کارت‌ها در حالت لایت‌مود */
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -33,8 +35,6 @@
     font-size: 16px;
   }
 }
-
-/* ۱. حذف بلوک prefers-color-scheme قدیمی برای جلوگیری از تداخل کدها */
 
 #root {
   width: 100%;
@@ -113,12 +113,14 @@ code {
   font-display: swap;
 }
 
-/* ۲. اصلاح روش تعریف استایل دارک‌مود بدون تداخل سینتکس */
+/* ۲. اصلاح و یکپارچه‌سازی استایل دارک‌مود با رنگ‌های سرمه‌ای زنده */
 html.dark, 
 .dark {
   --text: #9ca3af; 
   --text-h: #ffffff; 
-  --bg: #0A1628; 
+  --bg: #0B132B;          /* پس‌زمینه سرمه‌ای عمیق و زنده شما */
+  --card-bg: #1C2541;     /* رنگ کارت‌های سرمه‌ای */
+  --card-hover: #222E54;  /* رنگ هاور کارت‌ها */
   --border: rgba(255, 255, 255, 0.08); 
   --code-bg: #1e293b; 
   --accent: #38bdf8; 
@@ -132,7 +134,9 @@ html.dark,
   :root {
     --text: #9ca3af; 
     --text-h: #ffffff; 
-    --bg: #0A1628; 
+    --bg: #0B132B; 
+    --card-bg: #1C2541; 
+    --card-hover: #222E54;
     --border: rgba(255, 255, 255, 0.08); 
     --code-bg: #1e293b; 
     --accent: #38bdf8; 
