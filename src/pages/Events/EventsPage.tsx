@@ -57,7 +57,7 @@ export default function EventsPage() {
         {/* کانتینر اصلی */}
         <div className="flex flex-col lg:flex-row gap-6">
           
-          {/* ================= سایدبار فیلترها (سمت راست در دسکتاپ به خاطر RTL) ================= */}
+          {/* ================= سایدبار فیلترها  ================= */}
           <aside className="w-full lg:w-80 flex flex-col gap-4">
             
             {/* باکس جستجو */}
@@ -132,7 +132,7 @@ export default function EventsPage() {
 
           </aside>
 
-          {/* ================= بخش اصلی کارت‌ها (سمت چپ در دسکتاپ به خاطر RTL) ================= */}
+          {/* ================= بخش اصلی کارت‌ها  ================= */}
           <main className="flex-1 flex flex-col gap-6">
             
             {/* نوار ابزار بالای گرید */}

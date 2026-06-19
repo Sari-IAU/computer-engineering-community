@@ -128,7 +128,6 @@ html.dark,
   --shadow: rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
 }
 
-/* اعمال مدیا کوئری سیستم‌عامل به صورت جداگانه و استاندارد */
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af; 
@@ -144,7 +143,6 @@ html.dark,
   }
 }
 
-/* استایل‌های متفرقه دارک‌مود */
 html.dark #social .button-icon,
 .dark #social .button-icon,
 @media (prefers-color-scheme: dark) {

@@ -1,0 +1,112 @@
+import { Mail, MapPin,} from "lucide-react"; // فرض بر این است که آیکون‌های تلگرام و... رو داری یا جایگزین می‌کنی
+import { CONTACT_INFO, FOOTER_LINKS } from "../../mockData/footer";
+
+
+export default function Footer() {
+  return (
+    <footer
+      dir="rtl"
+      className="w-full transition-colors duration-300 border-t"
+      style={{ background: "var(--bg)", borderColor: "var(--border)" }}
+    >
+      {/* بخش اصلی فوتر */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          
+          {/* ستون اول: توصیف انجمن */}
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-2">
+              {/* لوگوی فرضی انجمن */}
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-blue-600 dark:from-blue-500 dark:to-indigo-500 flex items-center justify-center shadow-sm">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <rect x="2" y="2" width="6" height="6" rx="1.5" fill="white" fillOpacity="0.9" />
+                  <rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" fillOpacity="0.5" />
+                  <rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" fillOpacity="0.5" />
+                  <rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" fillOpacity="0.9" />
+                </svg>
+              </div>
+              <span className="font-black text-base" style={{ color: "var(--text-h)" }}>
+                انجمن علمی کامپیوتر
+              </span>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-slate-500 dark:text-slate-400 font-medium">
+              پلی میان دانشگاه و صنعت. ما در انجمن علمی با برگزاری رویدادها، کارگاه‌ها و پروژه‌های تیمی، فضای رشد مهارت‌های تخصصی دانشجویان را فراهم می‌کنیم.
+            </p>
+          </div>
+
+          {/* ستون‌های دوم و سوم: لینک‌های دسترسی (با مپ زدن دیتا) */}
+          {FOOTER_LINKS.map((section, idx) => (
+            <div key={idx} className="flex flex-col gap-4">
+              <h4 className="font-bold text-sm md:text-base" style={{ color: "var(--text-h)" }}>
+                {section.title}
+              </h4>
+              <ul className="flex flex-col gap-2.5">
+                {section.links.map((link, linkIdx) => (
+                  <li key={linkIdx}>
+                    <a
+                      href={link.href}
+                      className="text-xs md:text-sm text-slate-500 hover:text-[var(--accent)] dark:text-slate-400 dark:hover:text-[var(--accent)] transition-colors font-medium"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* ستون چهارم: اطلاعات تماس و شبکه‌های اجتماعی */}
+          <div className="flex flex-col gap-4">
+            <h4 className="font-bold text-sm md:text-base" style={{ color: "var(--text-h)" }}>
+              ارتباط با ما
+            </h4>
+            <div className="flex flex-col gap-3 text-xs md:text-sm text-slate-500 dark:text-slate-400 font-medium">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[var(--accent)]" />
+                <span className="leading-relaxed text-start" dir="rtl">{CONTACT_INFO.address}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 flex-shrink-0 text-[var(--accent)]" />
+                <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-[var(--accent)]">
+                  {CONTACT_INFO.email}
+                </a>
+              </div>
+            </div>
+
+            {/* آیکون‌های شبکه‌های اجتماعی فوتر */}
+            <div className="flex items-center gap-3 mt-2">
+              <a
+                href={CONTACT_INFO.telegram}
+                className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-slate-500 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              >
+                {/* به جای متن می‌توانید آیکون اختصاصی تلگرام یا آیکون Send با زاویه منفی بذارید */}
+                <span className="text-xs font-bold">TG</span>
+              </a>
+              <a
+                href={CONTACT_INFO.instagram}
+                className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-slate-500 hover:text-pink-500 dark:text-slate-400 dark:hover:text-pink-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              >
+                {/* <Instagram className="w-4 h-4" /> */}
+              </a>
+              <a
+                href={CONTACT_INFO.github}
+                className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              >
+                {/* <Github className="w-4 h-4" /> */}
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* بخش کپی رایت پایین فوتر */}
+      <div
+        className="w-full border-t py-4 text-center text-xs text-slate-400 dark:text-slate-500 font-medium"
+        style={{ borderColor: "var(--border)", background: "rgba(0,0,0,0.02)" }}
+      >
+        حقوق مادی و معنوی این وب‌سایت متعلق به انجمن علمی مهندسی کامپیوتر می‌باشد.
+      </div>
+    </footer>
+  );
+}
