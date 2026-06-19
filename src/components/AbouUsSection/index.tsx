@@ -8,17 +8,12 @@ export default function AboutSection() {
       className="w-full transition-colors duration-300"
       style={{ background: "var(--bg)" }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
         
         {/* هدر بخش درباره ما */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
           <div>
-            <p
-              className="text-sm font-bold tracking-widest uppercase mb-2"
-              style={{ color: "var(--accent)" }}
-            >
-              آشنایی با انجمن
-            </p>
+          
             <h2
               className="text-2xl sm:text-3xl md:text-4xl font-extrabold"
               style={{ color: "var(--text-h)", letterSpacing: "-0.5px" }}

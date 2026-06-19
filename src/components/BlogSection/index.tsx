@@ -13,7 +13,7 @@ export default function BlogSection() {
       className="w-full transition-colors duration-300"
       style={{ background: "var(--bg)" }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">

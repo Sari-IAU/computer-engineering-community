@@ -16,16 +16,10 @@ export default function FaqSection() {
       className="w-full transition-colors duration-300"
       style={{ background: "var(--bg)" }}
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 ">
         
         {/* هدر بخش سوالات متداول */}
         <div className="text-center mb-12">
-          <p
-            className="text-sm font-bold tracking-widest uppercase mb-2"
-            style={{ color: "var(--accent)" }}
-          >
-            پاسخ به ابهامات شما
-          </p>
           <h2
             className="text-2xl sm:text-3xl md:text-4xl font-extrabold flex items-center justify-center gap-3"
             style={{ color: "var(--text-h)", letterSpacing: "-0.5px" }}

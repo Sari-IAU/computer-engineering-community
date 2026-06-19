@@ -1,6 +1,5 @@
-import { Mail, MapPin,} from "lucide-react"; // فرض بر این است که آیکون‌های تلگرام و... رو داری یا جایگزین می‌کنی
+import { Mail, MapPin } from "lucide-react";
 import { CONTACT_INFO, FOOTER_LINKS } from "../../mockData/footer";
-
 
 export default function Footer() {
   return (
@@ -34,7 +33,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* ستون‌های دوم و سوم: لینک‌های دسترسی (با مپ زدن دیتا) */}
+          {/* ستون‌های دوم و سوم: لینک‌های دسترسی */}
           {FOOTER_LINKS.map((section, idx) => (
             <div key={idx} className="flex flex-col gap-4">
               <h4 className="font-bold text-sm md:text-base" style={{ color: "var(--text-h)" }}>
@@ -73,26 +72,43 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* آیکون‌های شبکه‌های اجتماعی فوتر */}
+            {/* آیکون‌های شبکه‌های اجتماعی فوتر با SVG اختصاصی */}
             <div className="flex items-center gap-3 mt-2">
+              {/* تلگرام */}
               <a
                 href={CONTACT_INFO.telegram}
                 className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-slate-500 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                title="تلگرام"
               >
-                {/* به جای متن می‌توانید آیکون اختصاصی تلگرام یا آیکون Send با زاویه منفی بذارید */}
-                <span className="text-xs font-bold">TG</span>
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m22 2-7 20-4-9-9-4Z" />
+                  <path d="M22 2 11 13" />
+                </svg>
               </a>
+
+              {/* اینستاگرام */}
               <a
                 href={CONTACT_INFO.instagram}
                 className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-slate-500 hover:text-pink-500 dark:text-slate-400 dark:hover:text-pink-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                title="اینستاگرام"
               >
-                {/* <Instagram className="w-4 h-4" /> */}
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
               </a>
+
+              {/* گیت‌هاب */}
               <a
                 href={CONTACT_INFO.github}
                 className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700/50 flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                title="گیت‌هاب"
               >
-                {/* <Github className="w-4 h-4" /> */}
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
               </a>
             </div>
           </div>
