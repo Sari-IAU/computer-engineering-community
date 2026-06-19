@@ -13,7 +13,7 @@ const navLinks: NavLink[] = [
   { label: "پروژه‌ها", to: "/projects" },
   { label: "مقالات", to: "/blogs" },
   { label: "درباره ما", to: "/about-us" },
-  { label: "تماس با ما", to: "/contact" },
+  { label: "تماس با ما", to: "/contact-us" },
 ];
 
 export default function Navbar() {
