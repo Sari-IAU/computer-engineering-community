@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FAQ_ITEMS } from "../../mockData/QAData";
 
 export default function FaqSection() {
@@ -9,15 +10,36 @@ export default function FaqSection() {
     setOpenId(openId === id ? null : id);
   };
 
+  const listContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.08 }
+    }
+  } as const;
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" }
+    }
+  } as const;
+
   return (
     <section
       dir="rtl"
-      className="w-full transition-colors duration-300 bg-[var(--bg)]" // استفاده از متغیر سراسری پس‌زمینه
+      className="w-full transition-colors duration-300 bg-[var(--bg)]"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
         
-        {/* هدر بخش سوالات متداول */}
-        <div className="text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <h2
             className="text-2xl sm:text-3xl md:text-4xl font-extrabold flex items-center justify-center gap-3 text-[var(--text-h)]"
             style={{ letterSpacing: "-0.5px" }}
@@ -25,25 +47,29 @@ export default function FaqSection() {
             <HelpCircle className="w-7 h-7 md:w-8 md:h-8" style={{ color: "var(--accent)" }} />
             سوالات <span style={{ color: "var(--accent)" }}>متداول</span>
           </h2>
-        </div>
+        </motion.div>
 
-        {/* لیست آکاردئون‌ها با متغیرهای هوشمند CSS */}
-        <div className="flex flex-col gap-4">
+        <motion.div 
+          variants={listContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-col gap-4"
+        >
           {FAQ_ITEMS.map((item) => {
             const isOpen = openId === item.id;
             return (
-              <div
+              <motion.div
                 key={item.id}
-                className="rounded-2xl transition-all duration-300 overflow-hidden border"
+                variants={itemVariants}
+                className="rounded-2xl transition-colors duration-300 overflow-hidden border"
                 style={{ 
-                  backgroundColor: "var(--card-bg)", // در دارک‌مود خودکار #1C2541 می‌شود
+                  backgroundColor: "var(--card-bg)",
                   borderColor: "var(--border)"
                 }}
-                // هندل کردن حالت هاور با متغیر CSS برای سازگاری کامل لایت/دارک
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--card-hover)"}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--card-bg)"}
               >
-                {/* دکمه سوال (هدر آکاردئون) */}
                 <button
                   onClick={() => toggleFaq(item.id)}
                   className="w-full p-5 flex items-center justify-between gap-4 text-right font-bold text-sm md:text-base transition-colors focus:outline-none"
@@ -58,21 +84,33 @@ export default function FaqSection() {
                   />
                 </button>
 
-                {/* پاسخ سوال (محتوای آکاردئون با انیمیشن روان) */}
-                <div
-                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                    isOpen ? "max-h-[200px] opacity-100 border-t" : "max-h-0 opacity-0"
-                  }`}
-                  style={{ borderColor: "var(--border)" }}
-                >
-                  <p className="p-5 text-xs md:text-sm leading-relaxed text-[var(--text)] font-medium">
-                    {item.answer}
-                  </p>
-                </div>
-              </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ 
+                        height: "auto", 
+                        opacity: 1,
+                        transition: { height: { duration: 0.25, ease: "easeOut" }, opacity: { duration: 0.2 } }
+                      }}
+                      exit={{ 
+                        height: 0, 
+                        opacity: 0,
+                        transition: { height: { duration: 0.2, ease: "easeIn" }, opacity: { duration: 0.15 } }
+                      }}
+                      className="overflow-hidden border-t"
+                      style={{ borderColor: "var(--border)" }}
+                    >
+                      <p className="p-5 text-xs md:text-sm leading-relaxed text-[var(--text)] font-medium">
+                        {item.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>

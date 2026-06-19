@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 interface NavLink {
   label: string;
-  to: string; 
+  to: string;
 }
 
 const navLinks: NavLink[] = [
@@ -20,12 +20,15 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (to: string) => location.pathname === to;
 
   return (
     <header
@@ -38,7 +41,7 @@ export default function Navbar() {
     >
       <div className="mx-auto px-6 max-w-[1600px]">
         <div className="flex items-center justify-between h-16">
-          {/* سمت راست: لوگو و لینک‌ها */}
+
           <div className="flex items-center gap-6">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
@@ -66,9 +69,22 @@ export default function Navbar() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="px-3.5 py-2 text-sm text-[var(--text)] hover:text-[var(--text-h)] hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-lg transition-all duration-200 font-semibold"
+                  className={`relative px-3.5 py-2 text-sm rounded-lg transition-all duration-200 font-semibold group ${
+                    isActive(link.to)
+                      ? "text-[var(--accent)]"
+                      : "text-[var(--text)] hover:text-[var(--text-h)] hover:bg-slate-200/50 dark:hover:bg-white/5"
+                  }`}
                 >
                   {link.label}
+
+                  <span
+                    className={`absolute bottom-0 right-3.5 left-3.5 h-0.5 rounded-full transition-all duration-300 ${
+                      isActive(link.to)
+                        ? "opacity-100 scale-x-100"
+                        : "opacity-0 scale-x-0"
+                    }`}
+                    style={{ background: "var(--accent)" }}
+                  />
                 </Link>
               ))}
             </nav>
@@ -79,8 +95,8 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               className={`h-9 px-3 rounded-lg text-[var(--text)] hover:text-[var(--text-h)] transition-all duration-300 flex items-center justify-center border shadow-sm ${
-                scrolled 
-                  ? "bg-slate-200/60 dark:bg-white/5 border-[var(--border)]" 
+                scrolled
+                  ? "bg-slate-200/60 dark:bg-white/5 border-[var(--border)]"
                   : "bg-white/40 dark:bg-white/5 border-[var(--border)] backdrop-blur-sm"
               }`}
               title={theme === "light" ? "حالت شب" : "حالت روز"}
@@ -95,7 +111,7 @@ export default function Navbar() {
               </div>
             </button>
 
-            {/* دکمه عضویت در انجمن */}
+            {/* دکمه عضویت */}
             <Link
               to="/login"
               className="hidden md:inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 dark:bg-blue-600 dark:hover:bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
@@ -106,7 +122,7 @@ export default function Navbar() {
               عضویت در انجمن
             </Link>
 
-            {/* Hamburger — موبایل */}
+            {/* Hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden p-2 rounded-lg text-[var(--text)] hover:text-[var(--text-h)] hover:bg-slate-200/60 dark:hover:bg-white/5 transition-all"
@@ -134,9 +150,19 @@ export default function Navbar() {
               key={link.to}
               to={link.to}
               onClick={() => setMenuOpen(false)}
-              className="px-4 py-2.5 text-sm text-[var(--text)] hover:text-[var(--text-h)] hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-lg transition-all font-semibold"
+              className={`px-4 py-2.5 text-sm rounded-lg transition-all font-semibold flex items-center justify-between ${
+                isActive(link.to)
+                  ? "text-[var(--accent)] bg-[var(--accent-bg)]"
+                  : "text-[var(--text)] hover:text-[var(--text-h)] hover:bg-slate-200/50 dark:hover:bg-white/5"
+              }`}
             >
               {link.label}
+              {isActive(link.to) && (
+                <span
+                  className="w-1.5 h-1.5 rounded-full"
+                  style={{ background: "var(--accent)" }}
+                />
+              )}
             </Link>
           ))}
           <Link

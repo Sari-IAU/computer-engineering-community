@@ -22,6 +22,7 @@ export default function HomePage() {
       <ProjectsSection/>
       <AboutSection/>
       <FaqSection/>
+      
     </>
   );
 }
