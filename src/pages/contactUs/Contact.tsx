@@ -68,7 +68,7 @@ export default function ContactPage() {
                 className="text-xs md:text-sm font-bold"
                 style={{ color: "var(--text-h)" }}
               >
-                دانشکده مهندسی، طبقه دوم، اتاق ۲۰۴
+       دانشگاه آزاد واحد ساری، دانشکده علوم و تربیت، طبقه سوم
               </span>
             </div>
           </div>
@@ -95,11 +95,11 @@ export default function ContactPage() {
                 ارتباط ایمیلی
               </span>
               <a
-                href="mailto:scientific@university.ac.ir"
+                href="mailto:Info@scsa.ir"
                 className="text-xs md:text-sm font-mono font-bold hover:underline"
                 style={{ color: "var(--text-h)" }}
               >
-                scientific@university.ac.ir
+                Info@scsa.ir
               </a>
             </div>
           </div>

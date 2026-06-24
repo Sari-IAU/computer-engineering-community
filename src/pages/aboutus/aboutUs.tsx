@@ -15,7 +15,7 @@ export default function AboutPage() {
     <div 
       className="w-full min-h-screen pt-24 pb-16 transition-colors duration-300" 
       dir="rtl"
-      style={{ backgroundColor: "var(--bg)" }} // اتصال داینامیک به پس‌زمینه اصلی پروژه
+      style={{ backgroundColor: "var(--bg)" }} 
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-20">
         
@@ -50,7 +50,6 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* گرید آمار و ارقام افتخارات */}
           <div className="grid grid-cols-2 gap-4">
             {stats.map((stat) => {
               const Icon = stat.icon;
@@ -108,7 +107,6 @@ export default function AboutPage() {
             </span>
           </div>
 
-          {/* گرید کارت‌های اعضا */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 gap-y-16">
             {TEAM_MEMBERS.map((member) => (
               <div 
@@ -121,7 +119,6 @@ export default function AboutPage() {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--card-hover)"}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--card-bg)"}
               >
-                {/* حلقه دور آواتار همرنگ بک‌گراند اصلی صفحه */}
                 <div 
                   className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full p-1 shadow-xl transition-colors duration-300"
                   style={{ backgroundColor: "var(--bg)" }}
@@ -144,7 +141,6 @@ export default function AboutPage() {
                   </span>
                 </div>
 
-                {/* دکمه‌های شبکه‌های اجتماعی هماهنگ با متغیرها */}
                 <div className="flex items-center gap-3 mt-2">
                   {member.socials.telegram && (
                     <a 

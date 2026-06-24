@@ -12,18 +12,18 @@ export interface FooterLink {
     {
       title: "دسترسی سریع",
       links: [
-        { label: "صفحه اصلی", href: "#" },
-        { label: "رویدادها و کارگاه‌ها", href: "#events" },
-        { label: "پروژه‌های فعال", href: "#projects" },
-        { label: "مقالات علمی", href: "#blog" },
-        { label: "درباره ما", href: "/about" },
+        { label: "صفحه اصلی", href: "/" },
+        { label: "رویدادها و کارگاه‌ها", href: "/events" },
+        { label: "پروژه‌های فعال", href: "/projects" },
+        { label: "مقالات علمی", href: "/blogs" },
+        { label: "درباره ما", href: "/about-us" },
       ],
     },
     {
       title: "لینک‌های دانشگاهی",
       links: [
-        { label: "سایت اصلی دانشگاه", href: "https://example.ac.ir" },
-        { label: "سامانه آموزشی (گلستان)", href: "#" },
+        { label: "سایت اموزشیار ", href: "https://edu.iau.ac.ir" },
+        { label: "سامانه وادانا", href: "https://vadamap.ec.iau.ir" },
         { label: "سایت دانشکده مهندسی", href: "#" },
         { label: "کتابخانه مرکزی", href: "#" },
       ],
@@ -31,9 +31,9 @@ export interface FooterLink {
   ];
   
   export const CONTACT_INFO = {
-    address: "تهران، دانشگاه فلانی، دانشکده مهندسی کامپیوتر، طبقه همکف، اتاق انجمن علمی",
-    email: "ssc@example.ac.ir",
-    telegram: "https://t.me/example",
-    instagram: "https://instagram.com/example",
-    github: "https://github.com/example",
+    address: "دانشگاه آزاد واحد ساری، دانشکده علوم و تربیت، طبقه سوم",
+    email: "Info@scsa.ir",
+    telegram: "https://t.me/Sari_CSA",
+    instagram: "http://instagram.com/sari_computer",
+    github: "https://github.com/Sari-IAU",
   };
