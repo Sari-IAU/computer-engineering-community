@@ -1,5 +1,6 @@
 import { Target, Users2, Send, Landmark, Award, BookOpen, Cpu, Link, GitBranch } from "lucide-react";
 import { TEAM_MEMBERS } from "../../mockData/teamData"; 
+import userPlaceHolder from "../../assets/images/userPlaceHolder.png"
 
 export default function AboutPage() {
   
@@ -108,7 +109,7 @@ export default function AboutPage() {
           </div>
 
           {/* گرید کارت‌های اعضا */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 gap-y-16">
             {TEAM_MEMBERS.map((member) => (
               <div 
                 key={member.id}
@@ -126,7 +127,7 @@ export default function AboutPage() {
                   style={{ backgroundColor: "var(--bg)" }}
                 >
                   <img 
-                    src={member.image} 
+                    src={member.image||userPlaceHolder} 
                     alt={member.name} 
                     className="w-full h-full object-cover rounded-full border transition-transform duration-300 group-hover:scale-110" 
                     style={{ borderColor: "var(--border)" }}

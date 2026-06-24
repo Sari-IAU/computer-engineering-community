@@ -47,7 +47,7 @@ export default function AboutSection() {
           </div>
           <motion.a
             whileHover={{ x: -4 }}
-            href="/about"
+            href="/about-us"
             className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 flex-shrink-0"
             style={{ color: "var(--accent)" }}
           >
@@ -61,7 +61,7 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-6 pt-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-16 gap-x-4 pt-8"
         >
           {TEAM_MEMBERS.map((member) => (
             <motion.div
