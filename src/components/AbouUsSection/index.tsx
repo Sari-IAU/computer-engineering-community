@@ -1,7 +1,7 @@
 import { ArrowLeft, GitBranch, Link, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { TEAM_MEMBERS } from "../../mockData/teamData";
-
+import userPlaceHolder from "../../assets/images/userPlaceHolder.png"
 export default function AboutSection() {
   const containerVariants = {
     hidden: {},
@@ -84,7 +84,7 @@ export default function AboutSection() {
                 style={{ backgroundColor: "var(--bg)" }}
               >
                 <img
-                  src={member.image}
+                  src={member.image || userPlaceHolder}
                   alt={member.name}
                   className="w-full h-full object-cover rounded-full border transition-transform duration-500 group-hover:scale-110"
                   style={{ borderColor: "var(--border)" }}
