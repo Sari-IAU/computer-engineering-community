@@ -8,6 +8,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { PROJECTS } from "../../mockData/projects";
+import CustomSelect from "../../components/common/CustomSelect";
 
 type SortType = "asc" | "desc";
 type SortField = "id" | "teamCount" | "techCount";
@@ -174,60 +175,30 @@ export default function ProjectsPage() {
             >
               <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
                 <span
-                  className="text-xs font-bold opacity-80 whitespace-nowrap"
+                  className="text-xs font-bold opacity-80"
                   style={{ color: "var(--text)" }}
                 >
                   مرتب‌سازی بر اساس:
                 </span>
 
-                <div
-                  className="relative border rounded-xl px-3 py-2 text-xs font-bold flex items-center gap-1 shadow-sm"
-                  style={{
-                    backgroundColor: "var(--bg)",
-                    borderColor: "var(--border)",
-                    color: "var(--text-h)",
-                  }}
-                >
-                  <select
-                    value={sortField}
-                    onChange={(e) => setSortField(e.target.value as SortField)}
-                    className="bg-transparent focus:outline-none cursor-pointer pl-6 border-none appearance-none font-bold"
-                  >
-                    <option value="id" className="bg-[var(--card-bg)]">
-                      جدیدترین
-                    </option>
-                    <option value="teamCount" className="bg-[var(--card-bg)]">
-                      تعداد اعضای تیم
-                    </option>
-                    <option value="techCount" className="bg-[var(--card-bg)]">
-                      تعداد تکنولوژی‌ها
-                    </option>
-                  </select>
-                  <ChevronDown className="w-3.5 h-3.5 absolute left-3 opacity-60 pointer-events-none" />
-                </div>
+                <CustomSelect
+                  value={sortField}
+                  onChange={setSortField}
+                  options={[
+                    { label: "جدیدترین", value: "id" },
+                    { label: "تعداد اعضا", value: "teamCount" },
+                    { label: "تعداد تکنولوژی", value: "techCount" },
+                  ]}
+                />
 
-                <div
-                  className="relative border rounded-xl px-3 py-2 text-xs font-bold flex items-center gap-1 shadow-sm"
-                  style={{
-                    backgroundColor: "var(--bg)",
-                    borderColor: "var(--border)",
-                    color: "var(--text-h)",
-                  }}
-                >
-                  <select
-                    value={sortType}
-                    onChange={(e) => setSortType(e.target.value as SortType)}
-                    className="bg-transparent focus:outline-none cursor-pointer pl-6 border-none appearance-none font-bold"
-                  >
-                    <option value="desc" className="bg-[var(--card-bg)]">
-                      نزولی
-                    </option>
-                    <option value="asc" className="bg-[var(--card-bg)]">
-                      صعودی
-                    </option>
-                  </select>
-                  <ChevronDown className="w-3.5 h-3.5 absolute left-3 opacity-60 pointer-events-none" />
-                </div>
+                <CustomSelect
+                  value={sortType}
+                  onChange={setSortType}
+                  options={[
+                    { label: "نزولی", value: "desc" },
+                    { label: "صعودی", value: "asc" },
+                  ]}
+                />
               </div>
 
               <div
