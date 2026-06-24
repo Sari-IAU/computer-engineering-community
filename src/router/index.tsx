@@ -7,6 +7,7 @@ import BlogPage from "../pages/Blogs/Blogs";
 import AboutPage from "../pages/aboutus/aboutUs";
 import ContactPage from "../pages/contactUs/Contact";
 import LoginPage from "../pages/login/login";
+import NotFoundPage from "../pages/notFound/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
@@ -41,7 +42,10 @@ export const router = createBrowserRouter([
         path: "/login",
         element: <LoginPage/>,
       },
-      
+      {
+        path: "*",
+        element: <NotFoundPage />,
+      },
     ],
   },
 ]);
