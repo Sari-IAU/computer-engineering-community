@@ -28,7 +28,7 @@ export default function Footer() {
                 انجمن علمی کامپیوتر
               </span>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-slate-500 dark:text-slate-400 font-medium">
+            <p className="text-xs md:text-sm text-start leading-relaxed text-slate-500 dark:text-slate-400 font-medium" dir="rtl">
               پلی میان دانشگاه و صنعت. ما در انجمن علمی با برگزاری رویدادها، کارگاه‌ها و پروژه‌های تیمی، فضای رشد مهارت‌های تخصصی دانشجویان را فراهم می‌کنیم.
             </p>
           </div>

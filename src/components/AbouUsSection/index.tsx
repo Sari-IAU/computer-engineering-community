@@ -1,13 +1,13 @@
 import { ArrowLeft, GitBranch, Link, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { TEAM_MEMBERS } from "../../mockData/teamData";
-import userPlaceHolder from "../../assets/images/userPlaceHolder.png"
+import userPlaceHolder from "../../assets/images/userPlaceHolder.png";
 export default function AboutSection() {
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1, 
+        staggerChildren: 0.1,
       },
     },
   } as const;
@@ -28,9 +28,8 @@ export default function AboutSection() {
       className="w-full transition-colors duration-300 bg-[var(--bg)]"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
         {/* هدر بخش درباره ما */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -42,7 +41,8 @@ export default function AboutSection() {
               className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--text-h)]"
               style={{ letterSpacing: "-0.5px" }}
             >
-              اعضای اصلی <span style={{ color: "var(--accent)" }}>شورای مرکزی</span>
+              اعضای اصلی{" "}
+              <span style={{ color: "var(--accent)" }}>شورای مرکزی</span>
             </h2>
           </div>
           <motion.a
@@ -56,7 +56,7 @@ export default function AboutSection() {
           </motion.a>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -67,19 +67,23 @@ export default function AboutSection() {
             <motion.div
               key={member.id}
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 y: -6,
-                transition: { duration: 0.2, ease: "easeInOut" }
+                transition: { duration: 0.2, ease: "easeInOut" },
               }}
               className="group relative flex flex-col items-center p-6 rounded-2xl border transition-all duration-300 text-center hover:shadow-xl"
-              style={{ 
+              style={{
                 backgroundColor: "var(--card-bg)",
-                borderColor: "var(--border)" 
+                borderColor: "var(--border)",
               }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--card-hover)"}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--card-bg)"}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "var(--card-hover)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "var(--card-bg)")
+              }
             >
-              <div 
+              <div
                 className="absolute -top-12 w-24 h-24 rounded-full p-1 shadow-md transition-all duration-300 group-hover:shadow-indigo-500/10 group-hover:scale-105"
                 style={{ backgroundColor: "var(--bg)" }}
               >
@@ -95,7 +99,10 @@ export default function AboutSection() {
                 <h3 className="font-extrabold text-base text-[var(--text-h)] group-hover:text-[var(--accent)] dark:group-hover:text-indigo-300 transition-colors duration-200">
                   {member.name}
                 </h3>
-                <p className="text-xs font-semibold opacity-90 transition-transform duration-200 group-hover:scale-[1.02]" style={{ color: "var(--accent)" }}>
+                <p
+                  className="text-xs font-semibold opacity-90 transition-transform duration-200 group-hover:scale-[1.02]"
+                  style={{ color: "var(--accent)" }}
+                >
                   {member.role}
                 </p>
               </div>
@@ -105,7 +112,10 @@ export default function AboutSection() {
                   <a
                     href={member.socials.linkedin}
                     className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border shadow-sm transition-all hover:scale-110"
-                    style={{ backgroundColor: "var(--social-bg)", borderColor: "var(--border)" }}
+                    style={{
+                      backgroundColor: "var(--social-bg)",
+                      borderColor: "var(--border)",
+                    }}
                   >
                     <Link className="w-3.5 h-3.5" />
                   </a>
@@ -114,16 +124,33 @@ export default function AboutSection() {
                   <a
                     href={member.socials.github}
                     className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border shadow-sm transition-all hover:scale-110"
-                    style={{ backgroundColor: "var(--social-bg)", borderColor: "var(--border)" }}
+                    style={{
+                      backgroundColor: "var(--social-bg)",
+                      borderColor: "var(--border)",
+                    }}
                   >
-                    <GitBranch className="w-3.5 h-3.5" />
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                      <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
                   </a>
                 )}
                 {member.socials.telegram && (
                   <a
                     href={member.socials.telegram}
                     className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 border shadow-sm transition-all hover:scale-110"
-                    style={{ backgroundColor: "var(--social-bg)", borderColor: "var(--border)" }}
+                    style={{
+                      backgroundColor: "var(--social-bg)",
+                      borderColor: "var(--border)",
+                    }}
                   >
                     <Send className="w-3.5 h-3.5 -rotate-45 translate-x-0.5" />
                   </a>
@@ -132,7 +159,6 @@ export default function AboutSection() {
             </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   );
