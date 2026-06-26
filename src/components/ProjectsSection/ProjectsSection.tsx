@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { PROJECTS } from "../../mockData/projects";
 
 export default function ProjectsSection() {
-  // کانتینر برای مدیریت تاخیر ظهور تک‌تک کارت‌ها
   const containerVariants = {
     hidden: {},
     visible: {
@@ -13,7 +12,6 @@ export default function ProjectsSection() {
     },
   } as const;
 
-  // انیمیشن ورود هر کارت پروژه
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -49,7 +47,7 @@ export default function ProjectsSection() {
           </div>
           <motion.a
             whileHover={{ x: -4 }}
-            href="#projects"
+            href="/projects"
             className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 flex-shrink-0"
             style={{ color: "var(--accent)" }}
           >

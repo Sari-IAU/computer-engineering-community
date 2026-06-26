@@ -1,4 +1,4 @@
-import { ArrowRight, Home, AlertTriangle } from "lucide-react";
+import { ArrowRight, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import notFoundIcon from "../../assets/icons/404.svg";
 export default function NotFoundPage() {

@@ -70,7 +70,6 @@ export default function HeroSection() {
           variants={itemVariants}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--text-h)] leading-[1.35] mb-5 md:mb-6 select-none flex flex-col items-center justify-center gap-y-2 text-center"
         >
-          {/* خط اول: یادگیری و ماشین‌نویسی کنار هم */}
           <div className="flex items-center justify-center gap-x-3 whitespace-nowrap">
             <span>یادگیری،</span>
             <span className="text-indigo-600 dark:text-blue-400 min-w-[120px] sm:min-w-[180px] text-right inline-block">
@@ -87,7 +86,6 @@ export default function HeroSection() {
             </span>
           </div>
 
-          {/* خط دوم: کاملاً مستقل در زیر خط اول */}
           <span className="block">و رشد در کنار هم</span>
         </motion.h1>
 

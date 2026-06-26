@@ -1,4 +1,4 @@
-import { ArrowLeft, GitBranch, Link, Send } from "lucide-react";
+import { ArrowLeft, Link, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { TEAM_MEMBERS } from "../../mockData/teamData";
 import userPlaceHolder from "../../assets/images/userPlaceHolder.png";
@@ -152,7 +152,7 @@ export default function AboutSection() {
                       borderColor: "var(--border)",
                     }}
                   >
-                    <Send className="w-3.5 h-3.5 -rotate-45 translate-x-0.5" />
+                    <Send className="w-3.5 h-3.5 mr-0.5" />
                   </a>
                 )}
               </div>

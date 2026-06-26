@@ -7,7 +7,6 @@ import {
   BookOpen,
   Cpu,
   Link,
-  GitBranch,
 } from "lucide-react";
 import { TEAM_MEMBERS } from "../../mockData/teamData";
 import userPlaceHolder from "../../assets/images/userPlaceHolder.png";
@@ -260,7 +259,7 @@ export default function AboutPage() {
                       }}
                       title="تلگرام"
                     >
-                      <Send className="w-3.5 h-3.5 transform -rotate-45" />
+                      <Send className="w-3.5 h-3.5 mr-0.5" />
                     </a>
                   )}
                   {member.socials.github && (

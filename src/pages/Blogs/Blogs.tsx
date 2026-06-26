@@ -10,7 +10,7 @@ import {
   Clock,
   ArrowLeft,
 } from "lucide-react";
-import { POSTS, type Post } from "../../mockData/blogData";
+import { POSTS } from "../../mockData/blogData";
 import CustomSelect from "../../components/common/CustomSelect";
 
 type SortType = "asc" | "desc";
