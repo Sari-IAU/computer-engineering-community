@@ -9,43 +9,48 @@ import ContactPage from "../pages/contactUs/Contact";
 import LoginPage from "../pages/login/login";
 import NotFoundPage from "../pages/notFound/NotFoundPage";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        {
+          path: "events",
+          element: <EventsPage />,
+        },
+        {
+          path: "projects",
+          element: <ProjectsPage />,
+        },
+        {
+          path: "blogs",
+          element: <BlogPage />,
+        },
+        {
+          path: "about-us",
+          element: <AboutPage />,
+        },
+        {
+          path: "contact-us",
+          element: <ContactPage />,
+        },
+        {
+          path: "login",
+          element: <LoginPage />,
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <RootLayout />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-      },
-      {
-        path: "/events",
-        element: <EventsPage/>,
-      },
-      {
-        path: "/projects",
-        element: <ProjectsPage/>,
-      },
-      {
-        path: "/blogs",
-        element: <BlogPage/>,
-      },
-      {
-        path: "/about-us",
-        element: <AboutPage/>,
-      },
-      {
-        path: "/contact-us",
-        element: <ContactPage/>,
-      },
-      {
-        path: "/login",
-        element: <LoginPage/>,
-      },
-      {
-        path: "*",
-        element: <NotFoundPage />,
-      },
-    ],
-  },
-]);
+    basename: "/computer-engineering-community",
+  }
+);
