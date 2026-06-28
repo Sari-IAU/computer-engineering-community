@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { POSTS } from "../../mockData/blogData";
 import CustomSelect from "../../components/common/CustomSelect";
+import { Link } from "react-router-dom";
 
 type SortType = "asc" | "desc";
 type SortField = "id" | "readTime";
@@ -335,14 +336,14 @@ export default function BlogPage() {
 
                       {/* لینک هدایت به کل مقاله با انیمیشن حرکتی پیکان */}
                       <div className="flex justify-end pt-1">
-                        <a
-                          href={`/blog/${post.id}`}
+                        <Link
+                          to={`/blog/${post.id}`}
                           className="inline-flex items-center gap-1 font-black text-xs transition-all group-hover:gap-2"
                           style={{ color: "var(--accent)" }}
                         >
                           <span>مطالعه مقاله</span>
                           <ArrowLeft className="w-3.5 h-3.5 transform transition-transform" />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
