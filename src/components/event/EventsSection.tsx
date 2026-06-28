@@ -2,21 +2,30 @@ import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import EventCard from "./EventCard";
-import { MOCK_EVENTS, CATEGORIES, type FilterCategory } from "../../mockData/enventData"; 
+import {
+  MOCK_EVENTS,
+  CATEGORIES,
+  type FilterCategory,
+} from "../../mockData/enventData";
+import { Link } from "react-router-dom";
 
 export default function EventsSection() {
   const [active, setActive] = useState<FilterCategory>("همه");
 
-  const filtered = active === "همه"
-    ? MOCK_EVENTS
-    : MOCK_EVENTS.filter((e) => e.category === active);
+  const filtered =
+    active === "همه"
+      ? MOCK_EVENTS
+      : MOCK_EVENTS.filter((e) => e.category === active);
 
   return (
-    <section id="events" dir="rtl" className="w-full bg-[var(--bg)] transition-colors duration-300">
+    <section
+      id="events"
+      dir="rtl"
+      className="w-full bg-[var(--bg)] transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
-
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -30,14 +39,15 @@ export default function EventsSection() {
             </h2>
           </div>
 
-          <motion.a
-            whileHover={{ x: -4 }}
-            href="/events"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-blue-400 transition-all duration-200 flex-shrink-0"
-          >
-            مشاهده همه رویدادها
-            <ArrowLeft className="w-4 h-4" />
-          </motion.a>
+          <motion.div whileHover={{ x: -4 }}>
+            <Link
+              to="/events"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-blue-400 transition-all duration-200 flex-shrink-0"
+            >
+              مشاهده همه رویدادها
+              <ArrowLeft className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* Filter tabs */}
@@ -62,7 +72,11 @@ export default function EventsSection() {
               <span className="relative z-10 flex items-center justify-center">
                 {cat}
                 {cat !== "همه" && (
-                  <span className={`mr-1.5 text-xs transition-colors duration-200 ${active === cat ? "text-white/80" : "opacity-60"}`}>
+                  <span
+                    className={`mr-1.5 text-xs transition-colors duration-200 ${
+                      active === cat ? "text-white/80" : "opacity-60"
+                    }`}
+                  >
                     ({MOCK_EVENTS.filter((e) => e.category === cat).length})
                   </span>
                 )}
@@ -71,19 +85,24 @@ export default function EventsSection() {
           ))}
         </div>
 
-        <motion.div 
-          layout 
+        <motion.div
+          layout
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((event) => (
               <motion.div
                 key={event.id}
-                layout 
+                layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                transition={{ type: "spring", stiffness: 500, damping: 35, mass: 0.5 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 500,
+                  damping: 35,
+                  mass: 0.5,
+                }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 className="h-full"
               >
@@ -92,7 +111,6 @@ export default function EventsSection() {
             ))}
           </AnimatePresence>
         </motion.div>
-
       </div>
     </section>
   );

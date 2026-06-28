@@ -1,7 +1,8 @@
-import { ArrowLeft, Link, Send } from "lucide-react";
+import { ArrowLeft, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { TEAM_MEMBERS } from "../../mockData/teamData";
 import userPlaceHolder from "../../assets/images/userPlaceHolder.png";
+import { Link } from "react-router-dom";
 export default function AboutSection() {
   const containerVariants = {
     hidden: {},
@@ -45,15 +46,16 @@ export default function AboutSection() {
               <span style={{ color: "var(--accent)" }}>شورای مرکزی</span>
             </h2>
           </div>
-          <motion.a
-            whileHover={{ x: -4 }}
-            href="/about-us"
-            className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 flex-shrink-0"
-            style={{ color: "var(--accent)" }}
-          >
-            درباره ما و اهداف انجمن
-            <ArrowLeft className="w-4 h-4" />
-          </motion.a>
+          <motion.div whileHover={{ x: -4 }}>
+            <Link
+              to="/about-us"
+              className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 flex-shrink-0"
+              style={{ color: "var(--accent)" }}
+            >
+              درباره ما و اهداف انجمن
+              <ArrowLeft className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </motion.div>
 
         <motion.div
