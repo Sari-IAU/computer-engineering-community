@@ -51,6 +51,6 @@ export const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/computer-engineering-community",
+    basename: "/",
   }
 );
