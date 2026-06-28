@@ -1,4 +1,4 @@
-import { ArrowLeft, Send } from "lucide-react";
+import { ArrowLeft, Link as LinkIcon, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { TEAM_MEMBERS } from "../../mockData/teamData";
 import userPlaceHolder from "../../assets/images/userPlaceHolder.png";
@@ -119,7 +119,7 @@ export default function AboutSection() {
                       borderColor: "var(--border)",
                     }}
                   >
-                    <Link className="w-3.5 h-3.5" />
+                    <LinkIcon className="w-3.5 h-3.5" />
                   </a>
                 )}
                 {member.socials.github && (

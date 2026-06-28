@@ -16,7 +16,6 @@
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --font-sans: 'Vazirmatn', system-ui, -apple-system, sans-serif;
-
   --sans: var(--font-sans);
   --heading: var(--font-sans);
   --mono: ui-monospace, Consolas, monospace;
@@ -33,6 +32,67 @@
 
   @media (max-width: 1024px) {
     font-size: 16px;
+  }
+}
+
+/* دارک مود - وقتی سیستم دارکه و یوزر دستی چیزی انتخاب نکرده */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.dark) {
+    --text: #9ca3af;
+    --text-h: #ffffff;
+    --bg: #0B132B;
+    --card-bg: #1C2541;
+    --card-hover: #222E54;
+    --border: rgba(255, 255, 255, 0.08);
+    --code-bg: #1e293b;
+    --accent: #38bdf8;
+    --accent-bg: rgba(56, 189, 248, 0.15);
+    --accent-border: rgba(56, 189, 248, 0.5);
+    --social-bg: rgba(255, 255, 255, 0.05);
+    --shadow: rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
+  }
+}
+
+/* دارک مود - انتخاب دستی یوزر */
+html.dark {
+  --text: #9ca3af;
+  --text-h: #ffffff;
+  --bg: #0B132B;
+  --card-bg: #1C2541;
+  --card-hover: #222E54;
+  --border: rgba(255, 255, 255, 0.08);
+  --code-bg: #1e293b;
+  --accent: #38bdf8;
+  --accent-bg: rgba(56, 189, 248, 0.15);
+  --accent-border: rgba(56, 189, 248, 0.5);
+  --social-bg: rgba(255, 255, 255, 0.05);
+  --shadow: rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
+}
+
+/* لایت مود - انتخاب دستی یوزر (override میکنه media query رو) */
+html.light {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --card-bg: #f8fafc;
+  --card-hover: #f1f5f9;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+}
+
+/* فیلتر آیکون‌های سوشال */
+html.dark #social .button-icon {
+  filter: invert(1) brightness(2);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light):not(.dark) #social .button-icon {
+    filter: invert(1) brightness(2);
   }
 }
 
@@ -69,6 +129,7 @@ h1 {
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
@@ -78,6 +139,7 @@ h2 {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
@@ -113,47 +175,6 @@ code {
   font-display: swap;
 }
 
-/* ۲. اصلاح و یکپارچه‌سازی استایل دارک‌مود با رنگ‌های سرمه‌ای زنده */
-html.dark, 
-.dark {
-  --text: #9ca3af; 
-  --text-h: #ffffff; 
-  --bg: #0B132B;     
-  --card-bg: #1C2541;  
-  --card-hover: #222E54; 
-  --border: rgba(255, 255, 255, 0.08); 
-  --code-bg: #1e293b; 
-  --accent: #38bdf8; 
-  --accent-bg: rgba(56, 189, 248, 0.15);
-  --accent-border: rgba(56, 189, 248, 0.5);
-  --social-bg: rgba(255, 255, 255, 0.05);
-  --shadow: rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af; 
-    --text-h: #ffffff; 
-    --bg: #0B132B; 
-    --card-bg: #1C2541; 
-    --card-hover: #222E54;
-    --border: rgba(255, 255, 255, 0.08); 
-    --code-bg: #1e293b; 
-    --accent: #38bdf8; 
-    --accent-bg: rgba(56, 189, 248, 0.15);
-    --accent-border: rgba(56, 189, 248, 0.5);
-    --social-bg: rgba(255, 255, 255, 0.05);
-    --shadow: rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
-  }
-}
-
-html.dark #social .button-icon,
-.dark #social .button-icon,
-@media (prefers-color-scheme: dark) {
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
 html {
   scroll-behavior: smooth;
 }
