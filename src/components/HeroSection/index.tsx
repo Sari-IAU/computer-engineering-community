@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import Typewriter from "typewriter-effect";
 import teamPic from "../../assets/images/teamPhoto.jpg";
+import { PersianTypewriter } from "../../core/utils/PersianTypewriter";
 
 export default function HeroSection() {
-  // انیمیشن ورود ترتیبی المان‌های متنی (Framer Motion)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -15,7 +14,6 @@ export default function HeroSection() {
     },
   } as const;
 
-  // انیمیشن ورود هر المان به صورت مجزا
   const itemVariants = {
     hidden: { opacity: 0, y: 25 },
     visible: {
@@ -73,16 +71,7 @@ export default function HeroSection() {
           <div className="flex items-center justify-center gap-x-3 whitespace-nowrap">
             <span>یادگیری،</span>
             <span className="text-indigo-600 dark:text-blue-400 min-w-[120px] sm:min-w-[180px] text-right inline-block">
-              <Typewriter
-                options={{
-                  strings: ["همکاری", "توسعه", "نوآوری", "خلاقیت"],
-                  autoStart: true,
-                  loop: true,
-                  delay: 80,
-                  deleteSpeed: 50,
-                  cursor: "|",
-                }}
-              />
+             <PersianTypewriter />
             </span>
           </div>
 
